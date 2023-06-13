@@ -21,15 +21,15 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials, req) {
         try {
-          const authData = await pocket
-            .collection("users")
+          const authData = await pocket.admins
+            // .collection("users")
             .authWithPassword(
               credentials?.username || "",
               credentials?.password || ""
             );
-            
 
-          return authData.record;
+          //return authData.record            //user
+          return { ...authData.admin, token: authData.token }; // admin
         } catch (error) {
           return null;
         }

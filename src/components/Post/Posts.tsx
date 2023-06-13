@@ -10,6 +10,7 @@ function Posts({posts}: Props) {
    <>
       {posts&&posts.map(post=>
       <PostCard post={post} key={post.created}/> 
+      
     )}
    
    </>

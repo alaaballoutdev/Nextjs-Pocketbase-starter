@@ -3,7 +3,7 @@ import Posts from "components/Post/Posts";
 import pocket from "lib/PocketBaseSingleton";
 import { revalidatePath } from "next/cache";
 export const revalidate = 0;
-
+// user
 export default async function Home() {
   let posts: Post[] | null = null;
   try {
@@ -22,6 +22,6 @@ export default async function Home() {
       revalidatePath("/");
     }
   } catch (error) {
-    return <SignOut />;
+    // return <SignOut />;
   }
 }
