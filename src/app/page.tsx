@@ -2,6 +2,7 @@ import SignOut from "components/Global/SignOut";
 import Posts from "components/Post/Posts";
 import pocket from "lib/PocketBaseSingleton";
 import { revalidatePath } from "next/cache";
+import Link from "next/link";
 export const revalidate = 0;
 export const metadata = {
   title: "Feeds | Post In",

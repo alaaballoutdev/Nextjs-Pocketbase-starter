@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import Input from "./Input";
-import pocket from "lib/PocketBaseSingleton";
-
+import { useRouter } from "next/navigation";
 function CreatePostForm() {
-  const [done, setDone] = useState(false);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const router = useRouter();
   const onSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -18,15 +17,13 @@ function CreatePostForm() {
     });
 
     if (res.status) {
-      setDone(true);
+      router.back();
     }
   };
 
   return (
     <div className="w-7/12 m-auto">
-      <p>{done ? "Done!" : ""}</p>
       <form onSubmit={onSubmit}>
-        <Input type="text" value={pocket.authStore.model?.email} readOnly />
         <Input
           type="text"
           value={title}

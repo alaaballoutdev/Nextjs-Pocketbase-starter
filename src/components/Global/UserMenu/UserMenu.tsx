@@ -1,5 +1,5 @@
 "use client";
-import { AccountCircle, Logout } from "@mui/icons-material";
+import { AccountCircle, Add, Logout } from "@mui/icons-material";
 import { Avatar, MenuList, Paper } from "@mui/material";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
@@ -40,10 +40,16 @@ const UserMenu = ({ username }: { username: string }) => {
               id="composition-menu"
               aria-labelledby="composition-button"
             >
-              <Link href="/userprofile">
+              <UserMenuItem
+                text={username}
+                icon={<AccountCircle />}
+                onClick={handleClose}
+              />
+
+              <Link href="/createpost">
                 <UserMenuItem
-                  text={username}
-                  icon={<AccountCircle />}
+                  text="Create Post"
+                  icon={<Add />}
                   onClick={handleClose}
                 />
               </Link>

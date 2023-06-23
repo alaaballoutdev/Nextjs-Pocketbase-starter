@@ -9,16 +9,18 @@ export const metadata = {
     "Welcom to Post In. Create your community and enjoy your relations.",
 };
 
-export default function RootLayout({
-  children,
-}: {
+export default function Layout(props: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
+        <div className="relative">
+          <Header />
+          {props.children}
+          {props.modal}
+        </div>
       </body>
     </html>
   );
